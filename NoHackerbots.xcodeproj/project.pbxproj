@@ -210,7 +210,7 @@
 		DB3E4ECA18FD119C00D10841 /* LICENSE_Chipmunk.txt in Resources */ = {isa = PBXBuildFile; fileRef = DB3E4EC918FD119C00D10841 /* LICENSE_Chipmunk.txt */; };
 		DB3E4ECE18FD119C00D10841 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4ECD18FD119C00D10841 /* main.m */; };
 		DB3E4ED218FD119C00D10841 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4ED118FD119C00D10841 /* AppDelegate.m */; };
-		DB3E4ED518FD119C00D10841 /* HelloWorldScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4ED418FD119C00D10841 /* HelloWorldScene.m */; };
+		DB3E4ED518FD119C00D10841 /* MainGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4ED418FD119C00D10841 /* MainGameScene.m */; };
 		DB3E4ED818FD119C00D10841 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4ED718FD119C00D10841 /* IntroScene.m */; };
 /* End PBXBuildFile section */
 
@@ -649,8 +649,8 @@
 		DB3E4ECD18FD119C00D10841 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
 		DB3E4ED018FD119C00D10841 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		DB3E4ED118FD119C00D10841 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
-		DB3E4ED318FD119C00D10841 /* HelloWorldScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HelloWorldScene.h; path = Classes/HelloWorldScene.h; sourceTree = "<group>"; };
-		DB3E4ED418FD119C00D10841 /* HelloWorldScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HelloWorldScene.m; path = Classes/HelloWorldScene.m; sourceTree = "<group>"; };
+		DB3E4ED318FD119C00D10841 /* MainGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainGameScene.h; path = Classes/MainGameScene.h; sourceTree = "<group>"; };
+		DB3E4ED418FD119C00D10841 /* MainGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainGameScene.m; path = Classes/MainGameScene.m; sourceTree = "<group>"; };
 		DB3E4ED618FD119C00D10841 /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Classes/IntroScene.h; sourceTree = "<group>"; };
 		DB3E4ED718FD119C00D10841 /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1542,8 +1542,8 @@
 			children = (
 				DB3E4ED018FD119C00D10841 /* AppDelegate.h */,
 				DB3E4ED118FD119C00D10841 /* AppDelegate.m */,
-				DB3E4ED318FD119C00D10841 /* HelloWorldScene.h */,
-				DB3E4ED418FD119C00D10841 /* HelloWorldScene.m */,
+				DB3E4ED318FD119C00D10841 /* MainGameScene.h */,
+				DB3E4ED418FD119C00D10841 /* MainGameScene.m */,
 				DB3E4ED618FD119C00D10841 /* IntroScene.h */,
 				DB3E4ED718FD119C00D10841 /* IntroScene.m */,
 			);
@@ -1747,7 +1747,7 @@
 				DB3E4D1B18FD119B00D10841 /* ccShaders.m in Sources */,
 				DB3E4E2F18FD119C00D10841 /* matrix.c in Sources */,
 				DB3E4D4118FD119B00D10841 /* CCTiledMapLayer.m in Sources */,
-				DB3E4ED518FD119C00D10841 /* HelloWorldScene.m in Sources */,
+				DB3E4ED518FD119C00D10841 /* MainGameScene.m in Sources */,
 				DB3E4E3518FD119C00D10841 /* neon_matrix_impl.c in Sources */,
 				DB3E4CBA18FD119B00D10841 /* CCLabelTTF.m in Sources */,
 				DB3E4D6F18FD119B00D10841 /* NSEvent+CC.m in Sources */,

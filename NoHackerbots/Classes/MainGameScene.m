@@ -7,14 +7,14 @@
 //
 // -----------------------------------------------------------------------
 
-#import "HelloWorldScene.h"
+#import "MainGameScene.h"
 #import "IntroScene.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - HelloWorldScene
 // -----------------------------------------------------------------------
 
-@implementation HelloWorldScene
+@implementation MainGameScene
 {
     CCSprite *_sprite;
 }
@@ -23,7 +23,7 @@
 #pragma mark - Create & Destroy
 // -----------------------------------------------------------------------
 
-+ (HelloWorldScene *)scene
++ (MainGameScene *)scene
 {
     return [[self alloc] init];
 }

@@ -9,7 +9,7 @@
 
 // Import the interfaces
 #import "IntroScene.h"
-#import "HelloWorldScene.h"
+#import "MainGameScene.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - IntroScene
@@ -63,7 +63,7 @@
 - (void)onSpinningClicked:(id)sender
 {
     // start spinning scene with transition
-    [[CCDirector sharedDirector] replaceScene:[HelloWorldScene scene]
+    [[CCDirector sharedDirector] replaceScene:[MainGameScene scene]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:1.0f]];
 }
 
