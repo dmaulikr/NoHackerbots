@@ -62,9 +62,13 @@
     _map.position = ccpMult(availableSpace, 0.5f);
     [self addChild:_map z:-1];
 
-    CCLOG(@"mapSize: %@", NSStringFromCGSize(_map.mapSize));
-    CCLOG(@"tileSize: %@", NSStringFromCGSize(_map.tileSize));
-    CCLOG(@"scaleFactor: %f", [CCDirector sharedDirector].contentScaleFactor);
+    // Get the block
+    CCTiledMapObjectGroup *objectGroup = [_map objectGroupNamed:@"Objects"];
+    NSMutableDictionary *blockInfo = [objectGroup objectNamed:@"Block"];
+    CGPoint blockPosition = ccp([blockInfo[@"x"] floatValue], [blockInfo[@"y"] floatValue]);
+
+    CCLOG(@"blockPosition: %@", NSStringFromCGPoint([self tilePositionFromLocation:blockPosition tileMap:_map]));
+
 
     // done
 	return self;
