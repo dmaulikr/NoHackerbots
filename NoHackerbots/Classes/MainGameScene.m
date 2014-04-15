@@ -34,7 +34,7 @@
 {
     // Apple recommend assigning self with supers return value
     self = [super init];
-    if (!self) return(nil);
+    if (!self) return nil;
     
     // Enable touch handling on scene node
     self.userInteractionEnabled = YES;
@@ -97,7 +97,7 @@
 #pragma mark - Touch Handler
 // -----------------------------------------------------------------------
 
--(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint touchLoc = [touch locationInNode:self];
     
     // Log touch location
