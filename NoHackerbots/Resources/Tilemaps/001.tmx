@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="isometric" width="10" height="10" tilewidth="52" tileheight="26" backgroundcolor="#006206">
  <tileset firstgid="1" name="dg_iso32" tilewidth="54" tileheight="49">
-  <image source="../Images/dg_iso32.png" width="756" height="735"/>
+  <image source="dg_iso32.png" width="756" height="735"/>
  </tileset>
  <layer name="Ground" width="10" height="10">
   <properties>

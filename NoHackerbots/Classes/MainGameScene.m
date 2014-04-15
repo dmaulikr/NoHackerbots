@@ -40,24 +40,34 @@
     self.userInteractionEnabled = YES;
     
     // Create a colored background (Dark Grey)
-    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.2f green:0.2f blue:0.2f alpha:1.0f]];
-    [self addChild:background];
-    
+    CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0 green:0.3f blue:0.0f alpha:1.0f]];
+    [self addChild:background z:-2];
+
     // Add a sprite
-    _sprite = [CCSprite spriteWithImageNamed:@"Icon-72.png"];
-    _sprite.position  = ccp(self.contentSize.width/2,self.contentSize.height/2);
-    [self addChild:_sprite];
-    
-    // Animate sprite with action
-    CCActionRotateBy* actionSpin = [CCActionRotateBy actionWithDuration:1.5f angle:360];
-    [_sprite runAction:[CCActionRepeatForever actionWithAction:actionSpin]];
-    
-    // Create a back button
-    CCButton *backButton = [CCButton buttonWithTitle:@"[ Menu ]" fontName:@"Verdana-Bold" fontSize:18.0f];
-    backButton.positionType = CCPositionTypeNormalized;
-    backButton.position = ccp(0.85f, 0.95f); // Top Right of screen
-    [backButton setTarget:self selector:@selector(onBackClicked:)];
-    [self addChild:backButton];
+//    _sprite = [CCSprite spriteWithImageNamed:@"Icon-72.png"];
+//    _sprite.position  = ccp(self.contentSize.width/2,self.contentSize.height/2);
+//    [self addChild:_sprite];
+//    
+//    // Animate sprite with action
+//    CCActionRotateBy* actionSpin = [CCActionRotateBy actionWithDuration:1.5f angle:360];
+//    [_sprite runAction:[CCActionRepeatForever actionWithAction:actionSpin]];
+//    
+//    // Create a back button
+//    CCButton *backButton = [CCButton buttonWithTitle:@"[ Menu ]" fontName:@"Verdana-Bold" fontSize:18.0f];
+//    backButton.positionType = CCPositionTypeNormalized;
+//    backButton.position = ccp(0.85f, 0.95f); // Top Right of screen
+//    [backButton setTarget:self selector:@selector(onBackClicked:)];
+//    [self addChild:backButton];
+
+    // Add the tilemap
+    CCTiledMap *tileMap = [CCTiledMap tiledMapWithFile:@"001.tmx"];
+    tileMap.anchorPoint = ccp(0.5f, 0.5f);
+    tileMap.position = ccp(self.contentSize.width / 2.0f, self.contentSize.height / 2.0f);
+    [self addChild:tileMap z:-1];
+//    tileMap.position = ccp(self.contentSize.width / 2.0f, self.contentSize.height / 2.0f);
+//    tileMap.position = ccp(0.0f, 0.0f);
+
+    NSLog(@"anchorPoint: %@", NSStringFromCGPoint(tileMap.anchorPoint));
 
     // done
 	return self;
