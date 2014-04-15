@@ -212,6 +212,7 @@
 		DB3E4ED218FD119C00D10841 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4ED118FD119C00D10841 /* AppDelegate.m */; };
 		DB3E4ED518FD119C00D10841 /* MainGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4ED418FD119C00D10841 /* MainGameScene.m */; };
 		DB3E4ED818FD119C00D10841 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4ED718FD119C00D10841 /* IntroScene.m */; };
+		DB3E4EE518FD138C00D10841 /* dg_iso32.png in Resources */ = {isa = PBXBuildFile; fileRef = DB3E4EE418FD138C00D10841 /* dg_iso32.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -653,6 +654,7 @@
 		DB3E4ED418FD119C00D10841 /* MainGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainGameScene.m; path = Classes/MainGameScene.m; sourceTree = "<group>"; };
 		DB3E4ED618FD119C00D10841 /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Classes/IntroScene.h; sourceTree = "<group>"; };
 		DB3E4ED718FD119C00D10841 /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
+		DB3E4EE418FD138C00D10841 /* dg_iso32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dg_iso32.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -724,6 +726,7 @@
 		DB3E4C4118FD119B00D10841 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DB3E4EE318FD137D00D10841 /* Images */,
 				DB3E4C4618FD119B00D10841 /* Default-568h@2x.png */,
 				DB3E4C4818FD119B00D10841 /* Default-Landscape~ipad.png */,
 				DB3E4C4218FD119B00D10841 /* Default.png */,
@@ -1550,6 +1553,15 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		DB3E4EE318FD137D00D10841 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DB3E4EE418FD138C00D10841 /* dg_iso32.png */,
+			);
+			name = Images;
+			path = Resources/Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1638,6 +1650,7 @@
 				DB3E4C6218FD119B00D10841 /* Icon-Spotlight-iOS7.png in Resources */,
 				DB3E4C5618FD119B00D10841 /* Icon-76@2x.png in Resources */,
 				DB3E4ECA18FD119C00D10841 /* LICENSE_Chipmunk.txt in Resources */,
+				DB3E4EE518FD138C00D10841 /* dg_iso32.png in Resources */,
 				DB3E4C6418FD119B00D10841 /* Icon-Spotlight-iOS7@2x.png in Resources */,
 				DB3E4C5418FD119B00D10841 /* Icon-76.png in Resources */,
 				DB3E4E2A18FD119C00D10841 /* ChangeLog in Resources */,
