@@ -213,6 +213,7 @@
 		DB3E4ED518FD119C00D10841 /* MainGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4ED418FD119C00D10841 /* MainGameScene.m */; };
 		DB3E4ED818FD119C00D10841 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4ED718FD119C00D10841 /* IntroScene.m */; };
 		DB3E4EE518FD138C00D10841 /* dg_iso32.png in Resources */ = {isa = PBXBuildFile; fileRef = DB3E4EE418FD138C00D10841 /* dg_iso32.png */; };
+		DB3E4EE818FD13FB00D10841 /* 001.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DB3E4EE718FD13FB00D10841 /* 001.tmx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -655,6 +656,7 @@
 		DB3E4ED618FD119C00D10841 /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Classes/IntroScene.h; sourceTree = "<group>"; };
 		DB3E4ED718FD119C00D10841 /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
 		DB3E4EE418FD138C00D10841 /* dg_iso32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dg_iso32.png; sourceTree = "<group>"; };
+		DB3E4EE718FD13FB00D10841 /* 001.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 001.tmx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -726,15 +728,16 @@
 		DB3E4C4118FD119B00D10841 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DB3E4EE318FD137D00D10841 /* Images */,
 				DB3E4C4618FD119B00D10841 /* Default-568h@2x.png */,
 				DB3E4C4818FD119B00D10841 /* Default-Landscape~ipad.png */,
 				DB3E4C4218FD119B00D10841 /* Default.png */,
 				DB3E4C4418FD119B00D10841 /* Default@2x.png */,
 				DB3E4C4A18FD119B00D10841 /* Icons */,
+				DB3E4EE318FD137D00D10841 /* Images */,
 				DB3E4C6518FD119B00D10841 /* Info.plist */,
 				DB3E4C6618FD119B00D10841 /* iTunesArtwork */,
 				DB3E4C6818FD119B00D10841 /* iTunesArtwork@2x */,
+				DB3E4EE618FD13FB00D10841 /* Tilemaps */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1562,6 +1565,15 @@
 			path = Resources/Images;
 			sourceTree = "<group>";
 		};
+		DB3E4EE618FD13FB00D10841 /* Tilemaps */ = {
+			isa = PBXGroup;
+			children = (
+				DB3E4EE718FD13FB00D10841 /* 001.tmx */,
+			);
+			name = Tilemaps;
+			path = Resources/Tilemaps;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1645,6 +1657,7 @@
 				DB3E4E4518FD119C00D10841 /* LICENSE_Kazmath.txt in Resources */,
 				DB3E4C5018FD119B00D10841 /* Icon-72.png in Resources */,
 				DB3E4D9E18FD119B00D10841 /* LICENSE_cocos2d.txt in Resources */,
+				DB3E4EE818FD13FB00D10841 /* 001.tmx in Resources */,
 				DB3E4C4718FD119B00D10841 /* Default-568h@2x.png in Resources */,
 				DB3E4C6718FD119B00D10841 /* iTunesArtwork in Resources */,
 				DB3E4C6218FD119B00D10841 /* Icon-Spotlight-iOS7.png in Resources */,
