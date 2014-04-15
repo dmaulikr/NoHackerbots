@@ -61,6 +61,10 @@
     _map.position = ccp(self.contentSize.width / 2.0f, self.contentSize.height / 2.0f);
     [self addChild:_map z:-1];
 
+    CCLOG(@"mapSize: %@", NSStringFromCGSize(_map.mapSize));
+    CCLOG(@"tileSize: %@", NSStringFromCGSize(_map.tileSize));
+    CCLOG(@"scaleFactor: %f", [CCDirector sharedDirector].contentScaleFactor);
+
     // done
 	return self;
 }
@@ -118,4 +122,30 @@
 }
 
 // -----------------------------------------------------------------------
+#pragma mark - Map Helpers
+// -----------------------------------------------------------------------
+- (CGPoint)tilePositionFromLocation:(CGPoint)location tileMap:(CCTiledMap *)tileMap
+{
+    // Get the proper offset for the tilemap position
+    CGPoint position = ccpSub(location, tileMap.position);
+
+    CGFloat halfMapWidth = tileMap.mapSize.width * 0.5f;
+    CGFloat mapHeight = tileMap.mapSize.height;
+    CGFloat mapPointWidth = tileMap.tileSize.width / [CCDirector sharedDirector].contentScaleFactor;
+    CGFloat mapPointHeight = tileMap.tileSize.height / [CCDirector sharedDirector].contentScaleFactor;
+
+    CGPoint positionDividedByTileSize = ccp(position.x / mapPointWidth, position.y / mapPointHeight);
+    CGFloat inverseTileY = mapHeight - positionDividedByTileSize.y;
+
+    CGFloat tilePositionX = floorf(inverseTileY + positionDividedByTileSize.x - halfMapWidth);
+    CGFloat tilePositionY = floorf(inverseTileY - positionDividedByTileSize.x + halfMapWidth);
+
+    // Make sure tile position is within boundaries
+    tilePositionX = MAX(0.0f,                       tilePositionX);
+    tilePositionX = MIN(tileMap.mapSize.width - 1,  tilePositionX);
+    tilePositionY = MAX(0.0f,                       tilePositionY);
+    tilePositionY = MIN(tileMap.mapSize.height - 1, tilePositionY);
+
+    return ccp(tilePositionX, tilePositionY);
+}
 @end
