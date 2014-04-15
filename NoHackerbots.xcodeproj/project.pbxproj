@@ -214,6 +214,7 @@
 		DB3E4ED818FD119C00D10841 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4ED718FD119C00D10841 /* IntroScene.m */; };
 		DB3E4EE818FD13FB00D10841 /* 001.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DB3E4EE718FD13FB00D10841 /* 001.tmx */; };
 		DB3E4EEA18FD1AAE00D10841 /* dg_iso32.png in Resources */ = {isa = PBXBuildFile; fileRef = DB3E4EE918FD1AAE00D10841 /* dg_iso32.png */; };
+		DB3E4EED18FD27CC00D10841 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4EEC18FD27CC00D10841 /* GameObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -657,6 +658,8 @@
 		DB3E4ED718FD119C00D10841 /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
 		DB3E4EE718FD13FB00D10841 /* 001.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 001.tmx; sourceTree = "<group>"; };
 		DB3E4EE918FD1AAE00D10841 /* dg_iso32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dg_iso32.png; sourceTree = "<group>"; };
+		DB3E4EEB18FD27CC00D10841 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = Classes/GameObject.h; sourceTree = "<group>"; };
+		DB3E4EEC18FD27CC00D10841 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameObject.m; path = Classes/GameObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1548,6 +1551,8 @@
 			children = (
 				DB3E4ED018FD119C00D10841 /* AppDelegate.h */,
 				DB3E4ED118FD119C00D10841 /* AppDelegate.m */,
+				DB3E4EEB18FD27CC00D10841 /* GameObject.h */,
+				DB3E4EEC18FD27CC00D10841 /* GameObject.m */,
 				DB3E4ED618FD119C00D10841 /* IntroScene.h */,
 				DB3E4ED718FD119C00D10841 /* IntroScene.m */,
 				DB3E4ED318FD119C00D10841 /* MainGameScene.h */,
@@ -1793,6 +1798,7 @@
 				DB3E4C7218FD119B00D10841 /* CCActionCatmullRom.m in Sources */,
 				DB3E4D8A18FD119B00D10841 /* NSAttributedString+CCAdditions.m in Sources */,
 				DB3E4E4C18FD119C00D10841 /* CCBKeyframe.m in Sources */,
+				DB3E4EED18FD27CC00D10841 /* GameObject.m in Sources */,
 				DB3E4E0618FD119C00D10841 /* CCControlTextureFactory.m in Sources */,
 				DB3E4C8B18FD119B00D10841 /* CCAnimationCache.m in Sources */,
 				DB3E4E0F18FD119C00D10841 /* CCTableView.m in Sources */,
