@@ -713,9 +713,9 @@
 		DB3E4C4018FD119B00D10841 /* NoHackerbots */ = {
 			isa = PBXGroup;
 			children = (
-				DB3E4C4118FD119B00D10841 /* Resources */,
-				DB3E4C6A18FD119B00D10841 /* Libraries */,
 				DB3E4ECF18FD119C00D10841 /* Classes */,
+				DB3E4C6A18FD119B00D10841 /* Libraries */,
+				DB3E4C4118FD119B00D10841 /* Resources */,
 				DB3E4ECB18FD119C00D10841 /* Supporting Files */,
 			);
 			path = NoHackerbots;
@@ -724,14 +724,14 @@
 		DB3E4C4118FD119B00D10841 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DB3E4C4218FD119B00D10841 /* Default.png */,
-				DB3E4C4418FD119B00D10841 /* Default@2x.png */,
 				DB3E4C4618FD119B00D10841 /* Default-568h@2x.png */,
 				DB3E4C4818FD119B00D10841 /* Default-Landscape~ipad.png */,
+				DB3E4C4218FD119B00D10841 /* Default.png */,
+				DB3E4C4418FD119B00D10841 /* Default@2x.png */,
+				DB3E4C4A18FD119B00D10841 /* Icons */,
 				DB3E4C6518FD119B00D10841 /* Info.plist */,
 				DB3E4C6618FD119B00D10841 /* iTunesArtwork */,
 				DB3E4C6818FD119B00D10841 /* iTunesArtwork@2x */,
-				DB3E4C4A18FD119B00D10841 /* Icons */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1542,10 +1542,10 @@
 			children = (
 				DB3E4ED018FD119C00D10841 /* AppDelegate.h */,
 				DB3E4ED118FD119C00D10841 /* AppDelegate.m */,
-				DB3E4ED318FD119C00D10841 /* MainGameScene.h */,
-				DB3E4ED418FD119C00D10841 /* MainGameScene.m */,
 				DB3E4ED618FD119C00D10841 /* IntroScene.h */,
 				DB3E4ED718FD119C00D10841 /* IntroScene.m */,
+				DB3E4ED318FD119C00D10841 /* MainGameScene.h */,
+				DB3E4ED418FD119C00D10841 /* MainGameScene.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
