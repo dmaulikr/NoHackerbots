@@ -57,8 +57,9 @@
 
     // Add the map
     _map = [CCTiledMap tiledMapWithFile:@"001.tmx"];
-    _map.anchorPoint = ccp(0.5f, 0.5f);
-    _map.position = ccp(self.contentSize.width / 2.0f, self.contentSize.height / 2.0f);
+    CGPoint availableSpace = ccp(self.contentSize.width - _map.contentSize.width,
+                                 self.contentSize.height - _map.contentSize.height);
+    _map.position = ccpMult(availableSpace, 0.5f);
     [self addChild:_map z:-1];
 
     CCLOG(@"mapSize: %@", NSStringFromCGSize(_map.mapSize));
