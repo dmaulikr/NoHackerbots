@@ -67,6 +67,11 @@
     NSMutableDictionary *blockInfo = [objectGroup objectNamed:@"Block"];
     CGPoint blockPosition = ccp([blockInfo[@"x"] floatValue], [blockInfo[@"y"] floatValue]);
 
+    // Add a block sprite
+    CCSprite *blockSprite = [CCSprite spriteWithImageNamed:@"block.png"];
+    blockSprite.position = ccp(388.0f, 130.0f);
+    [self addChild:blockSprite];
+
     CCLOG(@"blockPosition: %@", NSStringFromCGPoint([self tilePositionFromLocation:blockPosition tileMap:_map]));
 
 
