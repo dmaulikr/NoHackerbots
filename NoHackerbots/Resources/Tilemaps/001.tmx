@@ -11,12 +11,19 @@
    eJy7yMDAcJEAZiBCzag6/OqIBQDhx0Ii
   </data>
  </layer>
- <layer name="Objects" width="10" height="10">
-  <properties>
-   <property name="cc_vertexz" value="automatic"/>
-  </properties>
+ <layer name="Robots" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYEAFdgxDC7gPtAPIBHNxiAMApvgBIw==
+   eJxjYEAFdgyjYCABAF6QAD8=
+  </data>
+ </layer>
+ <layer name="Doors" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFAwHm4hAHABBIAJ4=
+  </data>
+ </layer>
+ <layer name="Blocks" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBjawH2gHUBlAAA7QABI
   </data>
  </layer>
 </map>
