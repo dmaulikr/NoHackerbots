@@ -54,6 +54,20 @@
     [backButton setTarget:self selector:@selector(onBackClicked:)];
     [self addChild:backButton];
 
+    // Create the floor
+    for (NSInteger row = 0; row < 10; row++) {
+        CGFloat yPosition = row * 32.0f;
+
+        for (NSInteger column = 0; column < 10; column++) {
+            CGFloat xPosition = column * 32.0f;
+
+            CCSprite *tile = [CCSprite spriteWithImageNamed:@"floor.png"];
+            tile.anchorPoint = CGPointZero; // Anchor at the bottom left
+            tile.position = ccp(xPosition, yPosition);
+            [self addChild:tile];
+        }
+    }
+
     // done
 	return self;
 }
