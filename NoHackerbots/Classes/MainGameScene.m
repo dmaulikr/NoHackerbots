@@ -157,6 +157,12 @@
 }
 
 - (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+    if (self.selectedBlock != nil) {
+        // Snap to grid
+        NSInteger tileColumn = self.block.position.x / 32.0f;
+        self.block.position = ccp(tileColumn * 32.0f, self.block.position.y);
+    }
+
     self.selectedBlock = nil;
     self.lastTouchLocation = ccp(-1.0f, -1.0f); // Sentinel value
 }
