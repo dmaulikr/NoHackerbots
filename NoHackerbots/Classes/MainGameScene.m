@@ -141,13 +141,11 @@
 
 - (void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint touchLocation = [touch locationInNode:self];
-    CGFloat touchX = touchLocation.x;
 
-    if (self.selectedBlock != nil &&
-        touchX >= self.selectedBlock.position.x &&
-        touchX <= (self.selectedBlock.position.x + self.selectedBlock.contentSize.width)) {
+    BOOL touchInBoard = CGRectContainsPoint(CGRectMake(0.0f, 0.0f, 320.0f, 320.0f), touchLocation);
 
-        CGFloat newX = self.selectedBlock.position.x + (touchX - self.lastTouchLocation.x);
+    if (self.selectedBlock != nil && touchInBoard) {
+        CGFloat newX = self.selectedBlock.position.x + (touchLocation.x - self.lastTouchLocation.x);
         newX = MIN(newX, 9.0f * 32.0f);
         newX = MAX(newX, 0.0f);
 
