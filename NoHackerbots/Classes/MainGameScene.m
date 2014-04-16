@@ -158,8 +158,8 @@
 
 - (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
     if (self.selectedBlock != nil) {
-        // Snap to grid
-        NSInteger tileColumn = self.block.position.x / 32.0f;
+        // Snap to tile
+        NSInteger tileColumn = roundf(self.block.position.x / 32.0f);
         self.block.position = ccp(tileColumn * 32.0f, self.block.position.y);
     }
 
