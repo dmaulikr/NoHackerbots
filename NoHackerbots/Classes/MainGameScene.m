@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) CCSprite *block;
 @property (nonatomic, assign) CGPoint lastTouchLocation;
+@property (nonatomic, strong) CCSprite *robot;
 @property (nonatomic, strong) CCSprite *selectedBlock;
 
 @end
@@ -26,6 +27,7 @@
 
 @synthesize block;
 @synthesize lastTouchLocation;
+@synthesize robot;
 @synthesize selectedBlock;
 
 // -----------------------------------------------------------------------
@@ -81,8 +83,14 @@
     // Create the block
     self.block = [CCSprite spriteWithImageNamed:@"block.png"];
     self.block.anchorPoint = CGPointZero; // Anchor at the bottom left
-    self.block.position = ccp(9.0f * 32.0f, 4.0f * 32.0f);
+    self.block.position = ccp(9.0f * 32.0f, 5.0f * 32.0f);
     [self addChild:self.block];
+
+    // Create the robot
+    self.robot = [CCSprite spriteWithImageNamed:@"robot.png"];
+    self.robot.anchorPoint = CGPointZero; // Anchor at the bottom left
+    self.robot.position = ccp(5.0f * 32.0f, 9.0f * 32.0f);
+    [self addChild:self.robot];
 
     // done
 	return self;

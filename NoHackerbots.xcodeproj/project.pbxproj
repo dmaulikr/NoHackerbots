@@ -217,6 +217,8 @@
 		DB9D82D518FE6EE500739CB0 /* floor.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9D82D318FE6EE500739CB0 /* floor.png */; };
 		DB9D82D818FE71B800739CB0 /* block-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9D82D618FE71B800739CB0 /* block-hd.png */; };
 		DB9D82D918FE71B800739CB0 /* block.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9D82D718FE71B800739CB0 /* block.png */; };
+		DB9D82DC18FE7B4000739CB0 /* robot-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9D82DA18FE7B4000739CB0 /* robot-hd.png */; };
+		DB9D82DD18FE7B4000739CB0 /* robot.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9D82DB18FE7B4000739CB0 /* robot.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -664,6 +666,8 @@
 		DB9D82D318FE6EE500739CB0 /* floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor.png; sourceTree = "<group>"; };
 		DB9D82D618FE71B800739CB0 /* block-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block-hd.png"; sourceTree = "<group>"; };
 		DB9D82D718FE71B800739CB0 /* block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = block.png; sourceTree = "<group>"; };
+		DB9D82DA18FE7B4000739CB0 /* robot-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "robot-hd.png"; sourceTree = "<group>"; };
+		DB9D82DB18FE7B4000739CB0 /* robot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robot.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1580,6 +1584,8 @@
 				DB9D82D718FE71B800739CB0 /* block.png */,
 				DB9D82D218FE6EE500739CB0 /* floor-hd.png */,
 				DB9D82D318FE6EE500739CB0 /* floor.png */,
+				DB9D82DA18FE7B4000739CB0 /* robot-hd.png */,
+				DB9D82DB18FE7B4000739CB0 /* robot.png */,
 			);
 			path = Tiles;
 			sourceTree = "<group>";
@@ -1652,6 +1658,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB9D82DD18FE7B4000739CB0 /* robot.png in Resources */,
 				DB3E4C4518FD119B00D10841 /* Default@2x.png in Resources */,
 				DB3E4C5818FD119B00D10841 /* Icon-120.png in Resources */,
 				DB3E4E5C18FD119C00D10841 /* LICENSE_CCBReader.txt in Resources */,
@@ -1662,6 +1669,7 @@
 				DB9D82D418FE6EE500739CB0 /* floor-hd.png in Resources */,
 				DB3E4C4C18FD119B00D10841 /* Icon.png in Resources */,
 				DB3E4C5A18FD119B00D10841 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
+				DB9D82DC18FE7B4000739CB0 /* robot-hd.png in Resources */,
 				DB9D82D818FE71B800739CB0 /* block-hd.png in Resources */,
 				DB3E4C4918FD119B00D10841 /* Default-Landscape~ipad.png in Resources */,
 				DB3E4C5E18FD119B00D10841 /* Icon-Small.png in Resources */,
