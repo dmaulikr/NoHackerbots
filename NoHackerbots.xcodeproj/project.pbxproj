@@ -212,10 +212,7 @@
 		DB3E4ED218FD119C00D10841 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4ED118FD119C00D10841 /* AppDelegate.m */; };
 		DB3E4ED518FD119C00D10841 /* MainGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4ED418FD119C00D10841 /* MainGameScene.m */; };
 		DB3E4ED818FD119C00D10841 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4ED718FD119C00D10841 /* IntroScene.m */; };
-		DB3E4EE818FD13FB00D10841 /* 001.tmx in Resources */ = {isa = PBXBuildFile; fileRef = DB3E4EE718FD13FB00D10841 /* 001.tmx */; };
-		DB3E4EEA18FD1AAE00D10841 /* dg_iso32.png in Resources */ = {isa = PBXBuildFile; fileRef = DB3E4EE918FD1AAE00D10841 /* dg_iso32.png */; };
 		DB3E4EED18FD27CC00D10841 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4EEC18FD27CC00D10841 /* GameObject.m */; };
-		DB3E4EEF18FD32C300D10841 /* block.png in Resources */ = {isa = PBXBuildFile; fileRef = DB3E4EEE18FD32C300D10841 /* block.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -657,11 +654,8 @@
 		DB3E4ED418FD119C00D10841 /* MainGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MainGameScene.m; path = Classes/MainGameScene.m; sourceTree = "<group>"; };
 		DB3E4ED618FD119C00D10841 /* IntroScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroScene.h; path = Classes/IntroScene.h; sourceTree = "<group>"; };
 		DB3E4ED718FD119C00D10841 /* IntroScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroScene.m; path = Classes/IntroScene.m; sourceTree = "<group>"; };
-		DB3E4EE718FD13FB00D10841 /* 001.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = 001.tmx; sourceTree = "<group>"; };
-		DB3E4EE918FD1AAE00D10841 /* dg_iso32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dg_iso32.png; sourceTree = "<group>"; };
 		DB3E4EEB18FD27CC00D10841 /* GameObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameObject.h; path = Classes/GameObject.h; sourceTree = "<group>"; };
 		DB3E4EEC18FD27CC00D10841 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameObject.m; path = Classes/GameObject.m; sourceTree = "<group>"; };
-		DB3E4EEE18FD32C300D10841 /* block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = block.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -742,7 +736,6 @@
 				DB3E4C6518FD119B00D10841 /* Info.plist */,
 				DB3E4C6618FD119B00D10841 /* iTunesArtwork */,
 				DB3E4C6818FD119B00D10841 /* iTunesArtwork@2x */,
-				DB3E4EE618FD13FB00D10841 /* Tilemaps */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1566,20 +1559,9 @@
 		DB3E4EE318FD137D00D10841 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				DB3E4EEE18FD32C300D10841 /* block.png */,
 			);
 			name = Images;
 			path = Resources/Images;
-			sourceTree = "<group>";
-		};
-		DB3E4EE618FD13FB00D10841 /* Tilemaps */ = {
-			isa = PBXGroup;
-			children = (
-				DB3E4EE918FD1AAE00D10841 /* dg_iso32.png */,
-				DB3E4EE718FD13FB00D10841 /* 001.tmx */,
-			);
-			name = Tilemaps;
-			path = Resources/Tilemaps;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1661,14 +1643,11 @@
 				DB3E4C5A18FD119B00D10841 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
 				DB3E4C4918FD119B00D10841 /* Default-Landscape~ipad.png in Resources */,
 				DB3E4C5E18FD119B00D10841 /* Icon-Small.png in Resources */,
-				DB3E4EEF18FD32C300D10841 /* block.png in Resources */,
 				DB3E4C5C18FD119B00D10841 /* Icon-Small-50.png in Resources */,
 				DB3E4E4518FD119C00D10841 /* LICENSE_Kazmath.txt in Resources */,
 				DB3E4C5018FD119B00D10841 /* Icon-72.png in Resources */,
 				DB3E4D9E18FD119B00D10841 /* LICENSE_cocos2d.txt in Resources */,
-				DB3E4EE818FD13FB00D10841 /* 001.tmx in Resources */,
 				DB3E4C4718FD119B00D10841 /* Default-568h@2x.png in Resources */,
-				DB3E4EEA18FD1AAE00D10841 /* dg_iso32.png in Resources */,
 				DB3E4C6718FD119B00D10841 /* iTunesArtwork in Resources */,
 				DB3E4C6218FD119B00D10841 /* Icon-Spotlight-iOS7.png in Resources */,
 				DB3E4C5618FD119B00D10841 /* Icon-76@2x.png in Resources */,
@@ -2025,6 +2004,7 @@
 				DB3E4EDD18FD119C00D10841 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DB3E4EDE18FD119C00D10841 /* Build configuration list for PBXNativeTarget "NoHackerbots" */ = {
 			isa = XCConfigurationList;
@@ -2033,6 +2013,7 @@
 				DB3E4EE018FD119C00D10841 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
