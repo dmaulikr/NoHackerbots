@@ -11,12 +11,20 @@
 #import "IntroScene.h"
 
 // -----------------------------------------------------------------------
-#pragma mark - HelloWorldScene
+#pragma mark - MainGameScene
 // -----------------------------------------------------------------------
 
+@interface MainGameScene ()
+
+@property (nonatomic, strong) CCSprite *block;
+@property (nonatomic, strong) CCSprite *selectedBlock;
+
+@end
+
 @implementation MainGameScene
-{
-}
+
+@synthesize block;
+@synthesize selectedBlock;
 
 // -----------------------------------------------------------------------
 #pragma mark - Create & Destroy
@@ -69,10 +77,10 @@
     }
 
     // Create the block
-    CCSprite *block = [CCSprite spriteWithImageNamed:@"block.png"];
-    block.anchorPoint = CGPointZero; // Anchor at the bottom left
-    block.position = ccp(9.0f * 32.0f, 4.0f * 32.0f);
-    [self addChild:block];
+    self.block = [CCSprite spriteWithImageNamed:@"block.png"];
+    self.block.anchorPoint = CGPointZero; // Anchor at the bottom left
+    self.block.position = ccp(9.0f * 32.0f, 4.0f * 32.0f);
+    [self addChild:self.block];
 
     // done
 	return self;
@@ -113,10 +121,27 @@
 // -----------------------------------------------------------------------
 
 - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-    CGPoint touchLoc = [touch locationInNode:self];
-    
-    // Log touch location
-    CCLOG(@"Move sprite to @ %@",NSStringFromCGPoint(touchLoc));
+    CGPoint touchLocation = [touch locationInNode:self];
+
+    if (CGRectContainsPoint(self.block.boundingBox, touchLocation)) {
+        self.selectedBlock = self.block;
+    }
+}
+
+- (void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
+    CGPoint touchLocation = [touch locationInNode:self];
+
+    if (self.selectedBlock != nil) {
+        CGFloat newX = touchLocation.x;
+        newX = MIN(newX, 9.0f * 32.0f);
+        newX = MAX(newX, 0.0f);
+
+        self.selectedBlock.position = ccp(newX, self.selectedBlock.position.y);
+    }
+}
+
+- (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+    self.selectedBlock = nil;
 }
 
 // -----------------------------------------------------------------------
