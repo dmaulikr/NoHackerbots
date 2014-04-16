@@ -17,6 +17,7 @@
 @interface MainGameScene ()
 
 @property (nonatomic, strong) CCSprite *block;
+@property (nonatomic, assign) CGPoint lastTouchLocation;
 @property (nonatomic, strong) CCSprite *selectedBlock;
 
 @end
@@ -24,6 +25,7 @@
 @implementation MainGameScene
 
 @synthesize block;
+@synthesize lastTouchLocation;
 @synthesize selectedBlock;
 
 // -----------------------------------------------------------------------
@@ -125,23 +127,30 @@
 
     if (CGRectContainsPoint(self.block.boundingBox, touchLocation)) {
         self.selectedBlock = self.block;
+        self.lastTouchLocation = touchLocation;
     }
 }
 
 - (void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint touchLocation = [touch locationInNode:self];
+    CGFloat touchX = touchLocation.x;
 
-    if (self.selectedBlock != nil) {
-        CGFloat newX = touchLocation.x;
+    if (self.selectedBlock != nil &&
+        touchX >= self.selectedBlock.position.x &&
+        touchX <= (self.selectedBlock.position.x + self.selectedBlock.contentSize.width)) {
+
+        CGFloat newX = self.selectedBlock.position.x + (touchX - self.lastTouchLocation.x);
         newX = MIN(newX, 9.0f * 32.0f);
         newX = MAX(newX, 0.0f);
 
         self.selectedBlock.position = ccp(newX, self.selectedBlock.position.y);
+        self.lastTouchLocation = touchLocation;
     }
 }
 
 - (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
     self.selectedBlock = nil;
+    self.lastTouchLocation = ccp(-1.0f, -1.0f); // Sentinel value
 }
 
 // -----------------------------------------------------------------------
