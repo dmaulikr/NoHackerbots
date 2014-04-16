@@ -215,6 +215,8 @@
 		DB3E4EED18FD27CC00D10841 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4EEC18FD27CC00D10841 /* GameObject.m */; };
 		DB9D82D418FE6EE500739CB0 /* floor-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9D82D218FE6EE500739CB0 /* floor-hd.png */; };
 		DB9D82D518FE6EE500739CB0 /* floor.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9D82D318FE6EE500739CB0 /* floor.png */; };
+		DB9D82D818FE71B800739CB0 /* block-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9D82D618FE71B800739CB0 /* block-hd.png */; };
+		DB9D82D918FE71B800739CB0 /* block.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9D82D718FE71B800739CB0 /* block.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -660,6 +662,8 @@
 		DB3E4EEC18FD27CC00D10841 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameObject.m; path = Classes/GameObject.m; sourceTree = "<group>"; };
 		DB9D82D218FE6EE500739CB0 /* floor-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "floor-hd.png"; sourceTree = "<group>"; };
 		DB9D82D318FE6EE500739CB0 /* floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor.png; sourceTree = "<group>"; };
+		DB9D82D618FE71B800739CB0 /* block-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block-hd.png"; sourceTree = "<group>"; };
+		DB9D82D718FE71B800739CB0 /* block.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = block.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1572,6 +1576,8 @@
 		DB9D82D118FE6D7A00739CB0 /* Tiles */ = {
 			isa = PBXGroup;
 			children = (
+				DB9D82D618FE71B800739CB0 /* block-hd.png */,
+				DB9D82D718FE71B800739CB0 /* block.png */,
 				DB9D82D218FE6EE500739CB0 /* floor-hd.png */,
 				DB9D82D318FE6EE500739CB0 /* floor.png */,
 			);
@@ -1656,10 +1662,12 @@
 				DB9D82D418FE6EE500739CB0 /* floor-hd.png in Resources */,
 				DB3E4C4C18FD119B00D10841 /* Icon.png in Resources */,
 				DB3E4C5A18FD119B00D10841 /* Icon-iPad-Spotlight-iOS7@2x.png in Resources */,
+				DB9D82D818FE71B800739CB0 /* block-hd.png in Resources */,
 				DB3E4C4918FD119B00D10841 /* Default-Landscape~ipad.png in Resources */,
 				DB3E4C5E18FD119B00D10841 /* Icon-Small.png in Resources */,
 				DB3E4C5C18FD119B00D10841 /* Icon-Small-50.png in Resources */,
 				DB3E4E4518FD119C00D10841 /* LICENSE_Kazmath.txt in Resources */,
+				DB9D82D918FE71B800739CB0 /* block.png in Resources */,
 				DB3E4C5018FD119B00D10841 /* Icon-72.png in Resources */,
 				DB3E4D9E18FD119B00D10841 /* LICENSE_cocos2d.txt in Resources */,
 				DB3E4C4718FD119B00D10841 /* Default-568h@2x.png in Resources */,

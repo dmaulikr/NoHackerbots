@@ -68,6 +68,12 @@
         }
     }
 
+    // Create the block
+    CCSprite *block = [CCSprite spriteWithImageNamed:@"block.png"];
+    block.anchorPoint = CGPointZero; // Anchor at the bottom left
+    block.position = ccp(9.0f * 32.0f, 4.0f * 32.0f);
+    [self addChild:block];
+
     // done
 	return self;
 }
