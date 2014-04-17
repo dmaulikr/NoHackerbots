@@ -69,8 +69,7 @@ typedef enum {
 
     // Create a "go" button
     CCButton *goButton = [CCButton buttonWithTitle:@"[ Go ]" fontName:@"Verdana-Bold" fontSize:18.0f];
-    goButton.positionType = CCPositionTypeNormalized;
-    goButton.position = ccp(0.85f, 0.95f); // Under the back button
+    goButton.position = ccp(530.0f, 300.0f); // Under the back button
     [goButton setTarget:self selector:@selector(onGoClicked:)];
     [self addChild:goButton];
 
@@ -223,8 +222,7 @@ typedef enum {
         CCLabelTTF *loseLabel = [CCLabelTTF labelWithString:@"DECRYPTION\nCOMPLETE\nyou lose"
                                                   fontName:@"Menlo-Regular"
                                                   fontSize:18.0f];
-        loseLabel.positionType = CCPositionTypeNormalized;
-        loseLabel.position = ccp(0.85f, 0.5f);
+        loseLabel.position = ccp(386.0f, 280.0f);
         [self addChild:loseLabel];
 
         [self unschedule:@selector(turnBegan:)];
@@ -241,8 +239,7 @@ typedef enum {
             CCLabelTTF *winLabel = [CCLabelTTF labelWithString:@"ENOMOREMOVES\nyou win"
                                                       fontName:@"Menlo-Regular"
                                                       fontSize:18.0f];
-            winLabel.positionType = CCPositionTypeNormalized;
-            winLabel.position = ccp(0.85f, 0.5f);
+            winLabel.position = ccp(396.0f, 290.0f);
             [self addChild:winLabel];
             [self unschedule:@selector(turnBegan:)];
         } else {
