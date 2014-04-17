@@ -184,11 +184,15 @@
 }
 
 - (void)onGoClicked:(id)sender {
-    CCLOG(@"Clicked Go");
+    [self schedule:@selector(turnBegan:) interval:1.0];
 }
 
 // -----------------------------------------------------------------------
-#pragma mark - Map Helpers
+#pragma mark - Game Loops
 // -----------------------------------------------------------------------
+
+- (void)turnBegan:(CCTime)dt {
+    CCLOG(@"turn began: %f", dt);
+}
 
 @end
