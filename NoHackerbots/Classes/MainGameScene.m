@@ -16,8 +16,14 @@
 
 @interface MainGameScene ()
 
+typedef enum {
+    GameStatePaused,
+    GameStatePlaying
+} GameState;
+
 @property (nonatomic, strong) CCSprite *block;
 @property (nonatomic, strong) CCSprite *door;
+@property (nonatomic, assign) GameState gameState;
 @property (nonatomic, assign) CGPoint lastTouchLocation;
 @property (nonatomic, strong) CCSprite *robot;
 @property (nonatomic, strong) CCSprite *selectedBlock;
@@ -107,6 +113,8 @@
     self.robot.position = ccp(5.0f * 32.0f, 9.0f * 32.0f);
     [self addChild:self.robot];
 
+    self.gameState = GameStatePaused;
+
     // done
 	return self;
 }
@@ -146,6 +154,10 @@
 // -----------------------------------------------------------------------
 
 - (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
+    if (GameStatePaused != self.gameState) {
+        return;
+    }
+
     CGPoint touchLocation = [touch locationInNode:self];
 
     if (CGRectContainsPoint(self.block.boundingBox, touchLocation)) {
@@ -155,6 +167,10 @@
 }
 
 - (void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event {
+    if (GameStatePaused != self.gameState) {
+        return;
+    }
+
     CGPoint touchLocation = [touch locationInNode:self];
 
     BOOL touchInBoard = CGRectContainsPoint(CGRectMake(0.0f, 0.0f, 320.0f, 320.0f), touchLocation);
@@ -170,6 +186,10 @@
 }
 
 - (void)touchEnded:(UITouch *)touch withEvent:(UIEvent *)event {
+    if (GameStatePaused != self.gameState) {
+        return;
+    }
+
     if (self.selectedBlock != nil) {
         // Snap to tile
         NSInteger tileColumn = roundf(self.block.position.x / 32.0f);
@@ -192,6 +212,7 @@
 }
 
 - (void)onGoClicked:(id)sender {
+    self.gameState = GameStatePlaying;
     [self schedule:@selector(turnBegan:) interval:1.0];
 }
 
