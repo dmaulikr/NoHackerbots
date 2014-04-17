@@ -1560,16 +1560,40 @@
 		DB3E4ECF18FD119C00D10841 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				DB3E4ED018FD119C00D10841 /* AppDelegate.h */,
-				DB3E4ED118FD119C00D10841 /* AppDelegate.m */,
+				DB5EC7C518FFB2EE0004979F /* Configuration */,
+				DB5EC7C318FFB2B90004979F /* Game Objects */,
+				DB5EC7C418FFB2CF0004979F /* Scenes */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		DB5EC7C318FFB2B90004979F /* Game Objects */ = {
+			isa = PBXGroup;
+			children = (
 				DB3E4EEB18FD27CC00D10841 /* GameObject.h */,
 				DB3E4EEC18FD27CC00D10841 /* GameObject.m */,
+			);
+			name = "Game Objects";
+			sourceTree = "<group>";
+		};
+		DB5EC7C418FFB2CF0004979F /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
 				DB3E4ED618FD119C00D10841 /* IntroScene.h */,
 				DB3E4ED718FD119C00D10841 /* IntroScene.m */,
 				DB3E4ED318FD119C00D10841 /* MainGameScene.h */,
 				DB3E4ED418FD119C00D10841 /* MainGameScene.m */,
 			);
-			name = Classes;
+			name = Scenes;
+			sourceTree = "<group>";
+		};
+		DB5EC7C518FFB2EE0004979F /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DB3E4ED018FD119C00D10841 /* AppDelegate.h */,
+				DB3E4ED118FD119C00D10841 /* AppDelegate.m */,
+			);
+			name = Configuration;
 			sourceTree = "<group>";
 		};
 		DB9D82D018FE6D7A00739CB0 /* Images */ = {
@@ -1640,6 +1664,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Jake Boxer";
+				TargetAttributes = {
+					DB3E4C2418FD119A00D10841 = {
+						DevelopmentTeam = VEKTX9H2N7;
+					};
+				};
 			};
 			buildConfigurationList = DB3E4C2018FD119A00D10841 /* Build configuration list for PBXProject "NoHackerbots" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1980,6 +2009,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1996,6 +2027,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2005,6 +2037,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NoHackerbots/Supporting Files/Prefix.pch";
@@ -2020,6 +2054,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
