@@ -80,7 +80,7 @@ typedef enum {
                                                       fontName:@"Menlo-Bold"
                                                       fontSize:14.0f];
     rulesHeaderLabel.anchorPoint = ccp(0.0f, 1.0f);
-    rulesHeaderLabel.position = ccp(336.0f, 232.0f);
+    rulesHeaderLabel.position = ccp(336.0f, 212.0f);
     [self addChild:rulesHeaderLabel];
 
     // Create the label for the single existing rule
@@ -88,18 +88,18 @@ typedef enum {
                                         fontName:@"Menlo-Bold"
                                         fontSize:14.0f];
     self.ruleLabel.anchorPoint = ccp(0.0f, 1.0f);
-    self.ruleLabel.position = ccp(336.0f, 212.0f);
+    self.ruleLabel.position = ccp(336.0f, 192.0f);
     [self addChild:self.ruleLabel];
 
     // Create a "go" button
     CCButton *goButton = [CCButton buttonWithTitle:@"[ Go ]" fontName:@"Verdana-Bold" fontSize:18.0f];
-    goButton.position = ccp(530.0f, 300.0f); // Under the back button
+    goButton.position = ccp(520.0f, 290.0f); // Under the back button
     [goButton setTarget:self selector:@selector(onGoClicked:)];
     [self addChild:goButton];
 
     // Create a "reset" button
     CCButton *resetButton = [CCButton buttonWithTitle:@"[ Reset ]" fontName:@"Verdana-Bold" fontSize:18.0f];
-    resetButton.position = ccp(515.0f, 270.0f); // Under the back button
+    resetButton.position = ccp(505.0f, 240.0f); // Under the back button
     [resetButton setTarget:self selector:@selector(onResetClicked:)];
     [self addChild:resetButton];
 
