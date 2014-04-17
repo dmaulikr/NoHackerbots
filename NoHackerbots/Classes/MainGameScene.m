@@ -221,22 +221,43 @@ typedef enum {
 // -----------------------------------------------------------------------
 
 - (void)turnBegan:(CCTime)dt {
-    CGPoint nextRobotPosition = ccp(self.robot.position.x, self.robot.position.y - 32.0f);
+    // Check preconditions
 
-    if (CGPointEqualToPoint(nextRobotPosition, self.block.position)) {
-        // Robot bumped into the block so you win!
-        CCLabelTTF *winLabel = [CCLabelTTF labelWithString:@"ENOMOREMOVES\nyou win"
+    BOOL passedPreconditions = YES;
+
+    if (CGPointEqualToPoint(self.robot.position, self.door.position)) {
+        // Robot made it to the door so you lose :(
+        CCLabelTTF *loseLabel = [CCLabelTTF labelWithString:@"DECRYPTION\nCOMPLETE\nyou lose"
                                                   fontName:@"Menlo-Regular"
                                                   fontSize:18.0f];
-        winLabel.positionType = CCPositionTypeNormalized;
-        winLabel.position = ccp(0.85f, 0.5f);
-        [self addChild:winLabel];
+        loseLabel.positionType = CCPositionTypeNormalized;
+        loseLabel.position = ccp(0.85f, 0.5f);
+        [self addChild:loseLabel];
+
         [self unschedule:@selector(turnBegan:)];
-    } else {
-        // Robot can keep moving
-        CCActionMoveTo *moveAction = [CCActionMoveTo actionWithDuration:0.25f
-                                                               position:ccp(self.robot.position.x, self.robot.position.y - 32.0f)];
-        [self.robot runAction:moveAction];
+        passedPreconditions = NO;
+    }
+
+    // Done checking preconditions. Calculate next move if they passed.
+
+    if (passedPreconditions) {
+        CGPoint nextRobotPosition = ccp(self.robot.position.x, self.robot.position.y - 32.0f);
+
+        if (CGPointEqualToPoint(nextRobotPosition, self.block.position)) {
+            // Robot bumped into the block so you win!
+            CCLabelTTF *winLabel = [CCLabelTTF labelWithString:@"ENOMOREMOVES\nyou win"
+                                                      fontName:@"Menlo-Regular"
+                                                      fontSize:18.0f];
+            winLabel.positionType = CCPositionTypeNormalized;
+            winLabel.position = ccp(0.85f, 0.5f);
+            [self addChild:winLabel];
+            [self unschedule:@selector(turnBegan:)];
+        } else {
+            // Robot can keep moving
+            CCActionMoveTo *moveAction = [CCActionMoveTo actionWithDuration:0.25f
+                                                                   position:ccp(self.robot.position.x, self.robot.position.y - 32.0f)];
+            [self.robot runAction:moveAction];
+        }
     }
 }
 
