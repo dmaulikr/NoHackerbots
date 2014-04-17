@@ -192,7 +192,9 @@
 // -----------------------------------------------------------------------
 
 - (void)turnBegan:(CCTime)dt {
-    CCLOG(@"turn began: %f", dt);
+    CCActionMoveTo *moveAction = [CCActionMoveTo actionWithDuration:0.25f
+                                                           position:ccp(self.robot.position.x, self.robot.position.y - 32.0f)];
+    [self.robot runAction:moveAction];
 }
 
 @end
