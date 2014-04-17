@@ -215,6 +215,7 @@
 		DB3E4EED18FD27CC00D10841 /* GameObject.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3E4EEC18FD27CC00D10841 /* GameObject.m */; };
 		DB5EC7C118FF9AE00004979F /* door-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DB5EC7BF18FF9AE00004979F /* door-hd.png */; };
 		DB5EC7C218FF9AE00004979F /* door.png in Resources */ = {isa = PBXBuildFile; fileRef = DB5EC7C018FF9AE00004979F /* door.png */; };
+		DB5EC7C818FFBDFF0004979F /* Robot.m in Sources */ = {isa = PBXBuildFile; fileRef = DB5EC7C718FFBDFF0004979F /* Robot.m */; };
 		DB9D82D418FE6EE500739CB0 /* floor-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9D82D218FE6EE500739CB0 /* floor-hd.png */; };
 		DB9D82D518FE6EE500739CB0 /* floor.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9D82D318FE6EE500739CB0 /* floor.png */; };
 		DB9D82D818FE71B800739CB0 /* block-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = DB9D82D618FE71B800739CB0 /* block-hd.png */; };
@@ -666,6 +667,8 @@
 		DB3E4EEC18FD27CC00D10841 /* GameObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameObject.m; path = Classes/GameObject.m; sourceTree = "<group>"; };
 		DB5EC7BF18FF9AE00004979F /* door-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "door-hd.png"; sourceTree = "<group>"; };
 		DB5EC7C018FF9AE00004979F /* door.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = door.png; sourceTree = "<group>"; };
+		DB5EC7C618FFBDFF0004979F /* Robot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Robot.h; path = Classes/Robot.h; sourceTree = "<group>"; };
+		DB5EC7C718FFBDFF0004979F /* Robot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Robot.m; path = Classes/Robot.m; sourceTree = "<group>"; };
 		DB9D82D218FE6EE500739CB0 /* floor-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "floor-hd.png"; sourceTree = "<group>"; };
 		DB9D82D318FE6EE500739CB0 /* floor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = floor.png; sourceTree = "<group>"; };
 		DB9D82D618FE71B800739CB0 /* block-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "block-hd.png"; sourceTree = "<group>"; };
@@ -1572,6 +1575,8 @@
 			children = (
 				DB3E4EEB18FD27CC00D10841 /* GameObject.h */,
 				DB3E4EEC18FD27CC00D10841 /* GameObject.m */,
+				DB5EC7C618FFBDFF0004979F /* Robot.h */,
+				DB5EC7C718FFBDFF0004979F /* Robot.m */,
 			);
 			name = "Game Objects";
 			sourceTree = "<group>";
@@ -1759,6 +1764,7 @@
 				DB3E4D6618FD119B00D10841 /* CCDirectorMac.m in Sources */,
 				DB3E4C9A18FD119B00D10841 /* ccDeprecated.m in Sources */,
 				DB3E4DC918FD119C00D10841 /* ALContext.m in Sources */,
+				DB5EC7C818FFBDFF0004979F /* Robot.m in Sources */,
 				DB3E4CA518FD119B00D10841 /* CCDrawNode.m in Sources */,
 				DB3E4D7618FD119B00D10841 /* CCFileUtils.m in Sources */,
 				DB3E4DF918FD119C00D10841 /* OALTools.m in Sources */,

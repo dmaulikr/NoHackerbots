@@ -7,8 +7,9 @@
 //
 // -----------------------------------------------------------------------
 
-#import "MainGameScene.h"
 #import "IntroScene.h"
+#import "MainGameScene.h"
+#import "Robot.h"
 
 // -----------------------------------------------------------------------
 #pragma mark - MainGameScene
@@ -26,7 +27,7 @@ typedef enum {
 @property (nonatomic, assign) GameState gameState;
 @property (nonatomic, strong) CCLabelTTF *gameStateLabel;
 @property (nonatomic, assign) CGPoint lastTouchLocation;
-@property (nonatomic, strong) CCSprite *robot;
+@property (nonatomic, strong) Robot *robot;
 @property (nonatomic, strong) CCLabelTTF *ruleLabel;
 @property (nonatomic, strong) CCSprite *selectedBlock;
 
@@ -129,9 +130,8 @@ typedef enum {
     [self addChild:self.block];
 
     // Create the robot
-    self.robot = [CCSprite spriteWithImageNamed:@"robot.png"];
-    self.robot.anchorPoint = CGPointZero; // Anchor at the bottom left
-    [self addChild:self.robot];
+    self.robot = [Robot robot];
+    [self addChild:self.robot.sprite];
 
     [self resetGame];
 
@@ -243,7 +243,7 @@ typedef enum {
 - (void)resetGame {
     // Set initial sprite states
     self.block.position = ccp(9.0f * 32.0f, 5.0f * 32.0f);
-    self.robot.position = ccp(5.0f * 32.0f, 9.0f * 32.0f);
+    self.robot.sprite.position = ccp(5.0f * 32.0f, 9.0f * 32.0f);
 
     [self stopRobot];
 
@@ -277,7 +277,7 @@ typedef enum {
 
     BOOL passedPreconditions = YES;
 
-    if (CGPointEqualToPoint(self.robot.position, self.door.position)) {
+    if (CGPointEqualToPoint(self.robot.sprite.position, self.door.position)) {
         // Robot made it to the door so you lose :(
         self.gameStateLabel.string = @"DECRYPTION\nCOMPLETE\nyou lose";
 
@@ -288,7 +288,7 @@ typedef enum {
     // Done checking preconditions. Calculate next move if they passed.
 
     if (passedPreconditions) {
-        CGPoint nextRobotPosition = ccp(self.robot.position.x, self.robot.position.y - 32.0f);
+        CGPoint nextRobotPosition = ccp(self.robot.sprite.position.x, self.robot.sprite.position.y - 32.0f);
 
         if (CGPointEqualToPoint(nextRobotPosition, self.block.position)) {
             // Robot bumped into the block so you win!
@@ -298,8 +298,8 @@ typedef enum {
         } else {
             // Robot can keep moving
             CCActionMoveTo *moveAction = [CCActionMoveTo actionWithDuration:0.25f
-                                                                   position:ccp(self.robot.position.x, self.robot.position.y - 32.0f)];
-            [self.robot runAction:moveAction];
+                                                                   position:ccp(self.robot.sprite.position.x, self.robot.sprite.position.y - 32.0f)];
+            [self.robot.sprite runAction:moveAction];
         }
     }
 }
