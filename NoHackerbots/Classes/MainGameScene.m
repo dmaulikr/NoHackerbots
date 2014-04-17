@@ -31,9 +31,15 @@ typedef enum {
 @property (nonatomic, strong) NSMutableArray *ruleLabels;
 @property (nonatomic, strong) CCSprite *selectedBlock;
 
+- (CCLabelTTF *)currentRuleLabel;
+- (void)onBackClicked:(id)sender;
+- (void)onGoClicked:(id)sender;
+- (void)onResetClicked:(id)sender;
+- (void)resetAllRuleLabelColors;
 - (void)resetGame;
 - (void)startRobot;
 - (void)stopRobot;
+- (void)turnBegan:(CCTime)dt;
 
 @end
 
@@ -252,6 +258,12 @@ typedef enum {
     [self resetGame];
 }
 
+- (void)resetAllRuleLabelColors {
+    for (CCLabelTTF *ruleLabel in self.ruleLabels) {
+        ruleLabel.color = [CCColor colorWithWhite:1.0f alpha:1.0f];
+    }
+}
+
 // -----------------------------------------------------------------------
 #pragma mark - Game Logic
 // -----------------------------------------------------------------------
@@ -271,6 +283,7 @@ typedef enum {
     self.gameState = GameStatePlaying;
 
     // Sprite state updates
+    [self resetAllRuleLabelColors];
     [self currentRuleLabel].color = [CCColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f];
 
     // Event scheduling
@@ -282,9 +295,7 @@ typedef enum {
     self.gameState = GameStatePaused;
 
     // Sprite state updates
-    for (CCLabelTTF *ruleLabel in self.ruleLabels) {
-        ruleLabel.color = [CCColor colorWithWhite:1.0f alpha:1.0f];
-    }
+    [self resetAllRuleLabelColors];
 
     // Event scheduling
     [self unschedule:@selector(turnBegan:)];
