@@ -47,15 +47,13 @@ typedef enum {
 #pragma mark - Create & Destroy
 // -----------------------------------------------------------------------
 
-+ (MainGameScene *)scene
-{
++ (MainGameScene *)scene {
     return [[self alloc] init];
 }
 
 // -----------------------------------------------------------------------
 
-- (id)init
-{
+- (id)init {
     // Apple recommend assigning self with supers return value
     self = [super init];
     if (!self) return nil;
@@ -66,11 +64,6 @@ typedef enum {
     // Create a colored background (Dark Grey)
     CCNodeColor *background = [CCNodeColor nodeWithColor:[CCColor colorWithRed:0.0 green:0.3f blue:0.0f alpha:1.0f]];
     [self addChild:background z:-2];
-
-//    
-//    // Animate sprite with action
-//    CCActionRotateBy* actionSpin = [CCActionRotateBy actionWithDuration:1.5f angle:360];
-//    [_sprite runAction:[CCActionRepeatForever actionWithAction:actionSpin]];
 
     // Create a game state label
     self.gameStateLabel = [CCLabelTTF labelWithString:@""
@@ -130,8 +123,7 @@ typedef enum {
 
 // -----------------------------------------------------------------------
 
-- (void)dealloc
-{
+- (void)dealloc {
     // clean up code goes here
 }
 
@@ -139,8 +131,7 @@ typedef enum {
 #pragma mark - Enter & Exit
 // -----------------------------------------------------------------------
 
-- (void)onEnter
-{
+- (void)onEnter {
     // always call super onEnter first
     [super onEnter];
     
@@ -152,8 +143,7 @@ typedef enum {
 
 // -----------------------------------------------------------------------
 
-- (void)onExit
-{
+- (void)onExit {
     // always call super onExit last
     [super onExit];
 }
@@ -213,8 +203,7 @@ typedef enum {
 #pragma mark - Button Callbacks
 // -----------------------------------------------------------------------
 
-- (void)onBackClicked:(id)sender
-{
+- (void)onBackClicked:(id)sender {
     // back to intro scene with transition
     [[CCDirector sharedDirector] replaceScene:[IntroScene scene]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:1.0f]];
