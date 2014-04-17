@@ -27,6 +27,7 @@ typedef enum {
 @property (nonatomic, strong) CCLabelTTF *gameStateLabel;
 @property (nonatomic, assign) CGPoint lastTouchLocation;
 @property (nonatomic, strong) CCSprite *robot;
+@property (nonatomic, strong) CCLabelTTF *ruleLabel;
 @property (nonatomic, strong) CCSprite *selectedBlock;
 
 - (void)resetGame;
@@ -41,6 +42,7 @@ typedef enum {
 @synthesize door;
 @synthesize lastTouchLocation;
 @synthesize robot;
+@synthesize ruleLabel;
 @synthesize selectedBlock;
 
 // -----------------------------------------------------------------------
@@ -72,6 +74,22 @@ typedef enum {
     self.gameStateLabel.anchorPoint = ccp(0.0f, 1.0f);
     self.gameStateLabel.position = ccp(336.0f, 304.0f);
     [self addChild:self.gameStateLabel];
+
+    // Create a Rules header label
+    CCLabelTTF *rulesHeaderLabel = [CCLabelTTF labelWithString:@"Rules:"
+                                                      fontName:@"Menlo-Regular"
+                                                      fontSize:14.0f];
+    rulesHeaderLabel.anchorPoint = ccp(0.0f, 1.0f);
+    rulesHeaderLabel.position = ccp(336.0f, 232.0f);
+    [self addChild:rulesHeaderLabel];
+
+    // Create the label for the single existing rule
+    self.ruleLabel = [CCLabelTTF labelWithString:@"1. Can go forward."
+                                        fontName:@"Menlo-Regular"
+                                        fontSize:14.0f];
+    self.ruleLabel.anchorPoint = ccp(0.0f, 1.0f);
+    self.ruleLabel.position = ccp(336.0f, 216.0f);
+    [self addChild:self.ruleLabel];
 
     // Create a "go" button
     CCButton *goButton = [CCButton buttonWithTitle:@"[ Go ]" fontName:@"Verdana-Bold" fontSize:18.0f];
