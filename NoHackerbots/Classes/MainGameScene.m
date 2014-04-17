@@ -66,6 +66,13 @@
     [backButton setTarget:self selector:@selector(onBackClicked:)];
     [self addChild:backButton];
 
+    // Create a "go" button
+    CCButton *goButton = [CCButton buttonWithTitle:@"[ Go ]" fontName:@"Verdana-Bold" fontSize:18.0f];
+    goButton.positionType = CCPositionTypeNormalized;
+    goButton.position = ccp(0.85f, 0.85f); // Under the back button
+    [goButton setTarget:self selector:@selector(onGoClicked:)];
+    [self addChild:goButton];
+
     // Create the floor
     for (NSInteger row = 0; row < 10; row++) {
         CGFloat yPosition = row * 32.0f;
@@ -174,6 +181,10 @@
     // back to intro scene with transition
     [[CCDirector sharedDirector] replaceScene:[IntroScene scene]
                                withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:1.0f]];
+}
+
+- (void)onGoClicked:(id)sender {
+    CCLOG(@"Clicked Go");
 }
 
 // -----------------------------------------------------------------------
