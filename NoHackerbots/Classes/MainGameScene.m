@@ -66,18 +66,11 @@ typedef enum {
 //    // Animate sprite with action
 //    CCActionRotateBy* actionSpin = [CCActionRotateBy actionWithDuration:1.5f angle:360];
 //    [_sprite runAction:[CCActionRepeatForever actionWithAction:actionSpin]];
-//    
-    // Create a back button
-    CCButton *backButton = [CCButton buttonWithTitle:@"[ Menu ]" fontName:@"Verdana-Bold" fontSize:18.0f];
-    backButton.positionType = CCPositionTypeNormalized;
-    backButton.position = ccp(0.85f, 0.95f); // Top Right of screen
-    [backButton setTarget:self selector:@selector(onBackClicked:)];
-    [self addChild:backButton];
 
     // Create a "go" button
     CCButton *goButton = [CCButton buttonWithTitle:@"[ Go ]" fontName:@"Verdana-Bold" fontSize:18.0f];
     goButton.positionType = CCPositionTypeNormalized;
-    goButton.position = ccp(0.85f, 0.85f); // Under the back button
+    goButton.position = ccp(0.85f, 0.95f); // Under the back button
     [goButton setTarget:self selector:@selector(onGoClicked:)];
     [self addChild:goButton];
 
