@@ -12,8 +12,7 @@
 
 @synthesize sprite;
 
-+ (GameObject *)gameObject
-{
++ (GameObject *)gameObject {
     return [[self alloc] init];
 }
 
