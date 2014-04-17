@@ -28,7 +28,7 @@ typedef enum {
 @property (nonatomic, strong) CCLabelTTF *gameStateLabel;
 @property (nonatomic, assign) CGPoint lastTouchLocation;
 @property (nonatomic, strong) Robot *robot;
-@property (nonatomic, copy) NSMutableArray *ruleLabels;
+@property (nonatomic, strong) NSMutableArray *ruleLabels;
 @property (nonatomic, strong) CCSprite *selectedBlock;
 
 - (void)resetGame;
@@ -84,25 +84,6 @@ typedef enum {
     rulesHeaderLabel.position = ccp(336.0f, 212.0f);
     [self addChild:rulesHeaderLabel];
 
-    // Create the label for the single existing rule
-    self.ruleLabels = [NSMutableArray arrayWithCapacity:[self.robot.rules count]];
-
-    CGFloat ruleLabelY = 192.0f;
-
-    for (NSInteger i = 0; i < [self.robot.rules count]; i++) {
-        NSString *rule = [self.robot.rules objectAtIndex:i];
-        CCLabelTTF *ruleLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ld. %@", i + 1l, rule]
-                                                   fontName:@"Menlo-Bold"
-                                                   fontSize:14.0f];
-        ruleLabel.position = ccp(336.0f, ruleLabelY);
-        [self addChild:ruleLabel];
-
-        [self.ruleLabels addObject:ruleLabel];
-
-        // Set up the y offset for the next rule label
-        ruleLabelY -= (ruleLabel.contentSize.height + 2.0f);
-    }
-
     // Create a "go" button
     CCButton *goButton = [CCButton buttonWithTitle:@"[ Go ]" fontName:@"Verdana-Bold" fontSize:18.0f];
     goButton.position = ccp(520.0f, 290.0f); // Under the back button
@@ -143,6 +124,26 @@ typedef enum {
     // Create the robot
     self.robot = [Robot robot];
     [self addChild:self.robot.sprite];
+
+    // Create the labels for the rules
+    self.ruleLabels = [NSMutableArray arrayWithCapacity:[self.robot.rules count]];
+
+    CGFloat ruleLabelY = 192.0f;
+
+    for (NSInteger i = 0; i < [self.robot.rules count]; i++) {
+        NSString *rule = [self.robot.rules objectAtIndex:i];
+        CCLabelTTF *ruleLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ld. %@", i + 1l, rule]
+                                                   fontName:@"Menlo-Bold"
+                                                   fontSize:14.0f];
+        ruleLabel.anchorPoint = ccp(0.0f, 1.0f);
+        ruleLabel.position = ccp(336.0f, ruleLabelY);
+        [self addChild:ruleLabel];
+
+        [self.ruleLabels addObject:ruleLabel];
+
+        // Set up the y offset for the next rule label
+        ruleLabelY -= (ruleLabel.contentSize.height + 2.0f);
+    }
 
     [self resetGame];
 
@@ -229,8 +230,12 @@ typedef enum {
 }
 
 // -----------------------------------------------------------------------
-#pragma mark - Button Callbacks
+#pragma mark - Menu Logic
 // -----------------------------------------------------------------------
+
+- (CCLabelTTF *)currentRuleLabel {
+    return [self.ruleLabels objectAtIndex:self.robot.currentRuleIndex];
+}
 
 - (void)onBackClicked:(id)sender {
     // back to intro scene with transition
@@ -266,7 +271,7 @@ typedef enum {
     self.gameState = GameStatePlaying;
 
     // Sprite state updates
-//    self.ruleLabel.color = [CCColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f];
+    [self currentRuleLabel].color = [CCColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f];
 
     // Event scheduling
     [self schedule:@selector(turnBegan:) interval:1.0];
@@ -277,7 +282,9 @@ typedef enum {
     self.gameState = GameStatePaused;
 
     // Sprite state updates
-//    self.ruleLabel.color = [CCColor colorWithWhite:1.0f alpha:1.0f];
+    for (CCLabelTTF *ruleLabel in self.ruleLabels) {
+        ruleLabel.color = [CCColor colorWithWhite:1.0f alpha:1.0f];
+    }
 
     // Event scheduling
     [self unschedule:@selector(turnBegan:)];

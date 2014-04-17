@@ -10,7 +10,7 @@
 
 @implementation Robot
 
-@synthesize currentRule;
+@synthesize currentRuleIndex;
 @synthesize rules;
 
 + (Robot *)robot {
@@ -25,9 +25,13 @@
     self.sprite.anchorPoint = CGPointZero; // Anchor at the bottom left
 
     self.rules = @[@"Can go forward."];
-    self.currentRule = [self.rules firstObject];
+    self.currentRuleIndex = 0;
 
     return self;
+}
+
+- (NSString *)currentRule {
+    return [self.rules objectAtIndex:self.currentRuleIndex];
 }
 
 @end
