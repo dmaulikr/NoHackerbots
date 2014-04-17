@@ -10,6 +10,9 @@
 
 @interface Robot : GameObject
 
+@property (nonatomic, copy) NSString *currentRule;
+@property (nonatomic, copy) NSArray *rules;
+
 + (Robot *)robot;
 
 @end

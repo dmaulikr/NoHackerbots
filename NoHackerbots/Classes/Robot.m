@@ -10,6 +10,9 @@
 
 @implementation Robot
 
+@synthesize currentRule;
+@synthesize rules;
+
 + (Robot *)robot {
     return [[self alloc] init];
 }
@@ -20,6 +23,11 @@
 
     self.sprite = [CCSprite spriteWithImageNamed:@"robot.png"];
     self.sprite.anchorPoint = CGPointZero; // Anchor at the bottom left
+
+    self.rules = @[@"Can go forward."];
+    self.currentRule = [self.rules firstObject];
+
+    return self;
 }
 
 @end

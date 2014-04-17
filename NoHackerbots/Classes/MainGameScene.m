@@ -28,7 +28,7 @@ typedef enum {
 @property (nonatomic, strong) CCLabelTTF *gameStateLabel;
 @property (nonatomic, assign) CGPoint lastTouchLocation;
 @property (nonatomic, strong) Robot *robot;
-@property (nonatomic, strong) CCLabelTTF *ruleLabel;
+@property (nonatomic, copy) NSMutableArray *ruleLabels;
 @property (nonatomic, strong) CCSprite *selectedBlock;
 
 - (void)resetGame;
@@ -43,7 +43,7 @@ typedef enum {
 @synthesize door;
 @synthesize lastTouchLocation;
 @synthesize robot;
-@synthesize ruleLabel;
+@synthesize ruleLabels;
 @synthesize selectedBlock;
 
 // -----------------------------------------------------------------------
@@ -85,12 +85,23 @@ typedef enum {
     [self addChild:rulesHeaderLabel];
 
     // Create the label for the single existing rule
-    self.ruleLabel = [CCLabelTTF labelWithString:@"1. Can go forward."
-                                        fontName:@"Menlo-Bold"
-                                        fontSize:14.0f];
-    self.ruleLabel.anchorPoint = ccp(0.0f, 1.0f);
-    self.ruleLabel.position = ccp(336.0f, 192.0f);
-    [self addChild:self.ruleLabel];
+    self.ruleLabels = [NSMutableArray arrayWithCapacity:[self.robot.rules count]];
+
+    CGFloat ruleLabelY = 192.0f;
+
+    for (NSInteger i = 0; i < [self.robot.rules count]; i++) {
+        NSString *rule = [self.robot.rules objectAtIndex:i];
+        CCLabelTTF *ruleLabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%ld. %@", i + 1l, rule]
+                                                   fontName:@"Menlo-Bold"
+                                                   fontSize:14.0f];
+        ruleLabel.position = ccp(336.0f, ruleLabelY);
+        [self addChild:ruleLabel];
+
+        [self.ruleLabels addObject:ruleLabel];
+
+        // Set up the y offset for the next rule label
+        ruleLabelY -= (ruleLabel.contentSize.height + 2.0f);
+    }
 
     // Create a "go" button
     CCButton *goButton = [CCButton buttonWithTitle:@"[ Go ]" fontName:@"Verdana-Bold" fontSize:18.0f];
@@ -255,7 +266,7 @@ typedef enum {
     self.gameState = GameStatePlaying;
 
     // Sprite state updates
-    self.ruleLabel.color = [CCColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f];
+//    self.ruleLabel.color = [CCColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f];
 
     // Event scheduling
     [self schedule:@selector(turnBegan:) interval:1.0];
@@ -266,7 +277,7 @@ typedef enum {
     self.gameState = GameStatePaused;
 
     // Sprite state updates
-    self.ruleLabel.color = [CCColor colorWithWhite:1.0f alpha:1.0f];
+//    self.ruleLabel.color = [CCColor colorWithWhite:1.0f alpha:1.0f];
 
     // Event scheduling
     [self unschedule:@selector(turnBegan:)];
