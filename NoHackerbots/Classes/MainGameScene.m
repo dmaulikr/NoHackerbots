@@ -24,9 +24,14 @@ typedef enum {
 @property (nonatomic, strong) CCSprite *block;
 @property (nonatomic, strong) CCSprite *door;
 @property (nonatomic, assign) GameState gameState;
+@property (nonatomic, strong) CCLabelTTF *gameStateLabel;
 @property (nonatomic, assign) CGPoint lastTouchLocation;
 @property (nonatomic, strong) CCSprite *robot;
 @property (nonatomic, strong) CCSprite *selectedBlock;
+
+- (void)resetGame;
+- (void)startRobot;
+- (void)stopRobot;
 
 @end
 
@@ -67,11 +72,25 @@ typedef enum {
 //    CCActionRotateBy* actionSpin = [CCActionRotateBy actionWithDuration:1.5f angle:360];
 //    [_sprite runAction:[CCActionRepeatForever actionWithAction:actionSpin]];
 
+    // Create a game state label
+    self.gameStateLabel = [CCLabelTTF labelWithString:@"Paused"
+                                             fontName:@"Menlo-Regular"
+                                             fontSize:18.0f];
+    self.gameStateLabel.anchorPoint = CGPointZero;
+    self.gameStateLabel.position = ccp(336.0f, 285.0f);
+    [self addChild:self.gameStateLabel];
+
     // Create a "go" button
     CCButton *goButton = [CCButton buttonWithTitle:@"[ Go ]" fontName:@"Verdana-Bold" fontSize:18.0f];
     goButton.position = ccp(530.0f, 300.0f); // Under the back button
     [goButton setTarget:self selector:@selector(onGoClicked:)];
     [self addChild:goButton];
+
+    // Create a "reset" button
+    CCButton *resetButton = [CCButton buttonWithTitle:@"[ Reset ]" fontName:@"Verdana-Bold" fontSize:18.0f];
+    resetButton.position = ccp(515.0f, 270.0f); // Under the back button
+    [resetButton setTarget:self selector:@selector(onResetClicked:)];
+    [self addChild:resetButton];
 
     // Create the floor
     for (NSInteger row = 0; row < 10; row++) {
@@ -96,16 +115,14 @@ typedef enum {
     // Create the block
     self.block = [CCSprite spriteWithImageNamed:@"block.png"];
     self.block.anchorPoint = CGPointZero; // Anchor at the bottom left
-    self.block.position = ccp(9.0f * 32.0f, 5.0f * 32.0f);
     [self addChild:self.block];
 
     // Create the robot
     self.robot = [CCSprite spriteWithImageNamed:@"robot.png"];
     self.robot.anchorPoint = CGPointZero; // Anchor at the bottom left
-    self.robot.position = ccp(5.0f * 32.0f, 9.0f * 32.0f);
     [self addChild:self.robot];
 
-    self.gameState = GameStatePaused;
+    [self resetGame];
 
     // done
 	return self;
@@ -204,13 +221,34 @@ typedef enum {
 }
 
 - (void)onGoClicked:(id)sender {
+    [self startRobot];
+}
+
+- (void)onResetClicked:(id)sender {
+    [self resetGame];
+}
+
+// -----------------------------------------------------------------------
+#pragma mark - Game Logic
+// -----------------------------------------------------------------------
+
+- (void)resetGame {
+    // Set initial sprite positions
+    self.block.position = ccp(9.0f * 32.0f, 5.0f * 32.0f);
+    self.robot.position = ccp(5.0f * 32.0f, 9.0f * 32.0f);
+
+    [self stopRobot];
+}
+
+- (void)startRobot {
     self.gameState = GameStatePlaying;
     [self schedule:@selector(turnBegan:) interval:1.0];
 }
 
-// -----------------------------------------------------------------------
-#pragma mark - Game Loops
-// -----------------------------------------------------------------------
+- (void)stopRobot {
+    self.gameState = GameStatePaused;
+    [self unschedule:@selector(turnBegan:)];
+}
 
 - (void)turnBegan:(CCTime)dt {
     // Check preconditions
@@ -225,7 +263,7 @@ typedef enum {
         loseLabel.position = ccp(386.0f, 280.0f);
         [self addChild:loseLabel];
 
-        [self unschedule:@selector(turnBegan:)];
+        [self stopRobot];
         passedPreconditions = NO;
     }
 
@@ -241,7 +279,8 @@ typedef enum {
                                                       fontSize:18.0f];
             winLabel.position = ccp(396.0f, 290.0f);
             [self addChild:winLabel];
-            [self unschedule:@selector(turnBegan:)];
+
+            [self stopRobot];
         } else {
             // Robot can keep moving
             CCActionMoveTo *moveAction = [CCActionMoveTo actionWithDuration:0.25f
