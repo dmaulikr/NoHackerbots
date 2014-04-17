@@ -17,6 +17,7 @@
 @interface MainGameScene ()
 
 @property (nonatomic, strong) CCSprite *block;
+@property (nonatomic, strong) CCSprite *door;
 @property (nonatomic, assign) CGPoint lastTouchLocation;
 @property (nonatomic, strong) CCSprite *robot;
 @property (nonatomic, strong) CCSprite *selectedBlock;
@@ -26,6 +27,7 @@
 @implementation MainGameScene
 
 @synthesize block;
+@synthesize door;
 @synthesize lastTouchLocation;
 @synthesize robot;
 @synthesize selectedBlock;
@@ -86,6 +88,12 @@
             [self addChild:tile];
         }
     }
+
+    // Create the door
+    self.door = [CCSprite spriteWithImageNamed:@"door.png"];
+    self.door.anchorPoint = CGPointZero; // Anchor at the bottom left
+    self.door.position = ccp(5.0f * 32.0f, 0.0f);
+    [self addChild:self.door];
 
     // Create the block
     self.block = [CCSprite spriteWithImageNamed:@"block.png"];
