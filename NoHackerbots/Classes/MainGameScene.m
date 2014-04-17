@@ -73,11 +73,11 @@ typedef enum {
 //    [_sprite runAction:[CCActionRepeatForever actionWithAction:actionSpin]];
 
     // Create a game state label
-    self.gameStateLabel = [CCLabelTTF labelWithString:@"Paused"
+    self.gameStateLabel = [CCLabelTTF labelWithString:@""
                                              fontName:@"Menlo-Regular"
                                              fontSize:18.0f];
-    self.gameStateLabel.anchorPoint = CGPointZero;
-    self.gameStateLabel.position = ccp(336.0f, 285.0f);
+    self.gameStateLabel.anchorPoint = ccp(0.0f, 1.0f);
+    self.gameStateLabel.position = ccp(336.0f, 304.0f);
     [self addChild:self.gameStateLabel];
 
     // Create a "go" button
@@ -221,6 +221,7 @@ typedef enum {
 }
 
 - (void)onGoClicked:(id)sender {
+    self.gameStateLabel.string = @"Playing";
     [self startRobot];
 }
 
@@ -233,20 +234,28 @@ typedef enum {
 // -----------------------------------------------------------------------
 
 - (void)resetGame {
-    // Set initial sprite positions
+    // Set initial sprite states
     self.block.position = ccp(9.0f * 32.0f, 5.0f * 32.0f);
     self.robot.position = ccp(5.0f * 32.0f, 9.0f * 32.0f);
 
     [self stopRobot];
+
+    self.gameStateLabel.string = @"Paused";
 }
 
 - (void)startRobot {
+    // Game state update
     self.gameState = GameStatePlaying;
+
+    // Event scheduling
     [self schedule:@selector(turnBegan:) interval:1.0];
 }
 
 - (void)stopRobot {
+    // Game state updates
     self.gameState = GameStatePaused;
+
+    // Event scheduling
     [self unschedule:@selector(turnBegan:)];
 }
 
@@ -257,11 +266,7 @@ typedef enum {
 
     if (CGPointEqualToPoint(self.robot.position, self.door.position)) {
         // Robot made it to the door so you lose :(
-        CCLabelTTF *loseLabel = [CCLabelTTF labelWithString:@"DECRYPTION\nCOMPLETE\nyou lose"
-                                                  fontName:@"Menlo-Regular"
-                                                  fontSize:18.0f];
-        loseLabel.position = ccp(386.0f, 280.0f);
-        [self addChild:loseLabel];
+        self.gameStateLabel.string = @"DECRYPTION\nCOMPLETE\nyou lose";
 
         [self stopRobot];
         passedPreconditions = NO;
@@ -274,11 +279,7 @@ typedef enum {
 
         if (CGPointEqualToPoint(nextRobotPosition, self.block.position)) {
             // Robot bumped into the block so you win!
-            CCLabelTTF *winLabel = [CCLabelTTF labelWithString:@"ENOMOREMOVES\nyou win"
-                                                      fontName:@"Menlo-Regular"
-                                                      fontSize:18.0f];
-            winLabel.position = ccp(396.0f, 290.0f);
-            [self addChild:winLabel];
+            self.gameStateLabel.string = @"ENOMOREMOVES\nyou win";
 
             [self stopRobot];
         } else {
