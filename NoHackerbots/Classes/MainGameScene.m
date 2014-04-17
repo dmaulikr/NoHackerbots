@@ -77,7 +77,7 @@ typedef enum {
 
     // Create a Rules header label
     CCLabelTTF *rulesHeaderLabel = [CCLabelTTF labelWithString:@"Rules:"
-                                                      fontName:@"Menlo-Regular"
+                                                      fontName:@"Menlo-Bold"
                                                       fontSize:14.0f];
     rulesHeaderLabel.anchorPoint = ccp(0.0f, 1.0f);
     rulesHeaderLabel.position = ccp(336.0f, 232.0f);
@@ -85,10 +85,10 @@ typedef enum {
 
     // Create the label for the single existing rule
     self.ruleLabel = [CCLabelTTF labelWithString:@"1. Can go forward."
-                                        fontName:@"Menlo-Regular"
+                                        fontName:@"Menlo-Bold"
                                         fontSize:14.0f];
     self.ruleLabel.anchorPoint = ccp(0.0f, 1.0f);
-    self.ruleLabel.position = ccp(336.0f, 216.0f);
+    self.ruleLabel.position = ccp(336.0f, 212.0f);
     [self addChild:self.ruleLabel];
 
     // Create a "go" button
@@ -251,8 +251,11 @@ typedef enum {
 }
 
 - (void)startRobot {
-    // Game state update
+    // Game state updates
     self.gameState = GameStatePlaying;
+
+    // Sprite state updates
+    self.ruleLabel.color = [CCColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f];
 
     // Event scheduling
     [self schedule:@selector(turnBegan:) interval:1.0];
@@ -261,6 +264,9 @@ typedef enum {
 - (void)stopRobot {
     // Game state updates
     self.gameState = GameStatePaused;
+
+    // Sprite state updates
+    self.ruleLabel.color = [CCColor colorWithWhite:1.0f alpha:1.0f];
 
     // Event scheduling
     [self unschedule:@selector(turnBegan:)];
