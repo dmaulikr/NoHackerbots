@@ -298,6 +298,7 @@ typedef enum {
     [self resetAllRuleLabelColors];
 
     // Event scheduling
+    [self.robot.sprite stopAllActions];
     [self unschedule:@selector(turnBegan:)];
 }
 
