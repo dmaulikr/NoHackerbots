@@ -287,7 +287,7 @@ typedef enum {
     [self currentRuleLabel].color = [CCColor colorWithRed:1.0f green:1.0f blue:0.0f alpha:1.0f];
 
     // Event scheduling
-    [self schedule:@selector(turnBegan:) interval:1.0];
+    [self schedule:@selector(turnBegan:) interval:0.5f];
 }
 
 - (void)stopRobot {
