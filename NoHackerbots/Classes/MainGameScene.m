@@ -7,6 +7,7 @@
 //
 // -----------------------------------------------------------------------
 
+#import "Board.h"
 #import "IntroScene.h"
 #import "MainGameScene.h"
 #import "Robot.h"
@@ -23,6 +24,7 @@ typedef enum {
 } GameState;
 
 @property (nonatomic, strong) CCSprite *block;
+@property (nonatomic, strong) Board *board;
 @property (nonatomic, strong) CCSprite *door;
 @property (nonatomic, assign) GameState gameState;
 @property (nonatomic, strong) CCLabelTTF *gameStateLabel;
@@ -46,6 +48,7 @@ typedef enum {
 @implementation MainGameScene
 
 @synthesize block;
+@synthesize board;
 @synthesize door;
 @synthesize lastTouchLocation;
 @synthesize robot;
@@ -102,18 +105,10 @@ typedef enum {
     [resetButton setTarget:self selector:@selector(onResetClicked:)];
     [self addChild:resetButton];
 
-    // Create the floor
-    for (NSInteger row = 0; row < 10; row++) {
-        CGFloat yPosition = row * 32.0f;
-
-        for (NSInteger column = 0; column < 10; column++) {
-            CGFloat xPosition = column * 32.0f;
-
-            CCSprite *tile = [CCSprite spriteWithImageNamed:@"floor.png"];
-            tile.anchorPoint = CGPointZero; // Anchor at the bottom left
-            tile.position = ccp(xPosition, yPosition);
-            [self addChild:tile];
-        }
+    // Create the board
+    self.board = [Board board];
+    for (CCSprite *tileSprite in self.board.tileSprites) {
+        [self addChild:tileSprite];
     }
 
     // Create the door

@@ -10,7 +10,7 @@
 
 @interface Board : NSObject
 
-@property (nonatomic, copy) NSArray *tiles;
+@property (nonatomic, copy) NSArray *tileSprites;
 
 + (Board *)board;
 - (BOOL)robotCanMoveToSquare:(CGPoint)square;
