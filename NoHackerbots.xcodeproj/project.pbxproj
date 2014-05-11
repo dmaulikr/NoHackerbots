@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB1B5125191F5168002FDE19 /* Board.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1B5124191F5168002FDE19 /* Board.m */; };
 		DB3E4C2918FD119A00D10841 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB3E4C2818FD119A00D10841 /* QuartzCore.framework */; };
 		DB3E4C2B18FD119A00D10841 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB3E4C2A18FD119A00D10841 /* OpenGLES.framework */; };
 		DB3E4C2D18FD119A00D10841 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB3E4C2C18FD119A00D10841 /* OpenAL.framework */; };
@@ -235,6 +236,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DB1B5123191F5168002FDE19 /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Board.h; path = Classes/Board.h; sourceTree = "<group>"; };
+		DB1B5124191F5168002FDE19 /* Board.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Board.m; path = Classes/Board.m; sourceTree = "<group>"; };
 		DB3E4C2518FD119A00D10841 /* NoHackerbots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoHackerbots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB3E4C2818FD119A00D10841 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DB3E4C2A18FD119A00D10841 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1573,6 +1576,8 @@
 		DB5EC7C318FFB2B90004979F /* Game Objects */ = {
 			isa = PBXGroup;
 			children = (
+				DB1B5123191F5168002FDE19 /* Board.h */,
+				DB1B5124191F5168002FDE19 /* Board.m */,
 				DB3E4EEB18FD27CC00D10841 /* GameObject.h */,
 				DB3E4EEC18FD27CC00D10841 /* GameObject.m */,
 				DB5EC7C618FFBDFF0004979F /* Robot.h */,
@@ -1746,6 +1751,7 @@
 				DB3E4DAA18FD119B00D10841 /* OALAudioActions.m in Sources */,
 				DB3E4DEF18FD119C00D10841 /* NSMutableArray+WeakReferences.m in Sources */,
 				DB3E4D6918FD119B00D10841 /* CCGLView.m in Sources */,
+				DB1B5125191F5168002FDE19 /* Board.m in Sources */,
 				DB3E4E3318FD119C00D10841 /* mat4.c in Sources */,
 				DB3E4C8F18FD119B00D10841 /* CCAtlasNode.m in Sources */,
 				DB3E4DDD18FD119C00D10841 /* OpenALManager.m in Sources */,
