@@ -8,6 +8,8 @@
 
 #import "GameObject.h"
 
+@class Board;
+
 @interface Robot : GameObject
 
 @property (nonatomic, assign) NSInteger currentRuleIndex;
@@ -15,5 +17,6 @@
 @property (nonatomic, copy) NSArray *rules;
 
 + (Robot *)robot;
+- (CGPoint)nextSquareOnBoard:(Board *)board;
 
 @end

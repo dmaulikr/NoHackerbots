@@ -10,4 +10,25 @@
 
 @implementation Board
 
++ (Board *)board {
+    return [[self alloc] init];
+}
+
+- (id)init {
+    self = [super init];
+    if (!self) return nil;
+
+    return self;
+}
+
+#pragma mark Robot movement calculation methods
+
+- (BOOL)robotCanMoveToSquare:(CGPoint)square {
+    return NO;
+}
+
+- (CGPoint)squareForRobot {
+    return CGPointZero;
+}
+
 @end

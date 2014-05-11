@@ -10,4 +10,10 @@
 
 @interface Board : NSObject
 
+@property (nonatomic, copy) NSArray *tiles;
+
++ (Board *)board;
+- (BOOL)robotCanMoveToSquare:(CGPoint)square;
+- (CGPoint)squareForRobot;
+
 @end
